@@ -4,6 +4,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { Reveal } from "@/components/Reveal";
 import { Magnetic } from "@/components/Magnetic";
 import { ServiceCard } from "@/components/ServiceCard";
+import { Icon } from "@/components/Icon";
 import { SERVICES } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -44,7 +45,7 @@ export default function ServicesPage() {
               className="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-[15px] font-semibold text-white"
             >
               Ask us
-              <span className="material-symbols-outlined text-xl">arrow_forward</span>
+              <Icon name="arrow_forward" className="h-5 w-5" />
             </Link>
           </Magnetic>
         </div>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { supabase } from "@/lib/supabase";
+import { Icon } from "./Icon";
 
 const inputClass =
   "w-full rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-[15px] text-ink placeholder:text-neutral-400 outline-none transition-all duration-200 focus:border-brand-deep focus:bg-white focus:ring-4 focus:ring-brand/30";
@@ -56,9 +57,7 @@ export function ContactForm() {
               transition={{ type: "spring", stiffness: 300, damping: 14, delay: 0.1 }}
               className="grid h-16 w-16 place-items-center rounded-full bg-brand"
             >
-              <span className="material-symbols-outlined text-3xl font-bold text-ink">
-                check
-              </span>
+              <Icon name="check" className="h-8 w-8 text-ink" />
             </motion.span>
             <h3 className="mt-5 text-xl font-semibold tracking-tight">
               Message received
@@ -139,15 +138,13 @@ export function ContactForm() {
             >
               {status === "sending" ? (
                 <>
-                  <span className="material-symbols-outlined animate-spin text-xl">
-                    progress_activity
-                  </span>
+                  <Icon name="progress_activity" className="h-5 w-5 animate-spin" />
                   Sending…
                 </>
               ) : (
                 <>
                   Send message
-                  <span className="material-symbols-outlined text-xl">arrow_forward</span>
+                  <Icon name="arrow_forward" className="h-5 w-5" />
                 </>
               )}
             </motion.button>

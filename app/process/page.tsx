@@ -4,6 +4,7 @@ import { PageHeader } from "@/components/PageHeader";
 import { ProcessTabs } from "@/components/ProcessTabs";
 import { Reveal } from "@/components/Reveal";
 import { Magnetic } from "@/components/Magnetic";
+import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "Process",
@@ -36,7 +37,7 @@ export default function ProcessPage() {
               className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-4 text-[15px] font-semibold text-ink"
             >
               Start with Discover
-              <span className="material-symbols-outlined text-xl">arrow_forward</span>
+              <Icon name="arrow_forward" className="h-5 w-5" />
             </Link>
           </Magnetic>
         </div>

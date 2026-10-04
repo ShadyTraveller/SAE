@@ -4,9 +4,10 @@ import { Reveal } from "@/components/Reveal";
 import { Magnetic } from "@/components/Magnetic";
 import { Stat } from "@/components/Stat";
 import { ServiceCard } from "@/components/ServiceCard";
+import { Icon, type IconName } from "@/components/Icon";
 import { SERVICES, STATS } from "@/lib/site";
 
-const WHY_SAE = [
+const WHY_SAE: { icon: IconName; title: string; text: string }[] = [
   {
     icon: "workspace_premium",
     title: "Senior only",
@@ -61,7 +62,7 @@ export default function HomePage() {
               className="hidden shrink-0 items-center gap-1.5 rounded-full border border-neutral-200 px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-ink sm:inline-flex"
             >
               All services
-              <span className="material-symbols-outlined text-lg">arrow_forward</span>
+              <Icon name="arrow_forward" className="h-[18px] w-[18px]" />
             </Link>
           </div>
         </Reveal>
@@ -78,7 +79,7 @@ export default function HomePage() {
             className="inline-flex items-center gap-1.5 rounded-full border border-neutral-200 px-5 py-2.5 text-sm font-semibold text-ink"
           >
             All services
-            <span className="material-symbols-outlined text-lg">arrow_forward</span>
+            <Icon name="arrow_forward" className="h-[18px] w-[18px]" />
           </Link>
         </Reveal>
       </section>
@@ -95,9 +96,7 @@ export default function HomePage() {
             <Reveal key={item.title} delay={i * 0.07}>
               <div className="h-full rounded-3xl border border-neutral-200 bg-neutral-50 p-6">
                 <div className="grid h-11 w-11 place-items-center rounded-2xl bg-brand">
-                  <span className="material-symbols-outlined text-2xl text-ink">
-                    {item.icon}
-                  </span>
+                  <Icon name={item.icon} className="h-6 w-6 text-ink" />
                 </div>
                 <h3 className="mt-4 text-lg font-semibold tracking-tight text-ink">
                   {item.title}
@@ -115,7 +114,6 @@ export default function HomePage() {
       <section className="mt-16 md:mt-24" aria-label="Get started">
         <Reveal>
           <div className="relative overflow-hidden rounded-[28px] bg-brand px-6 py-12 text-center md:py-16">
-            <div aria-hidden className="absolute inset-0 bg-dots opacity-40" />
             <h2 className="relative text-3xl font-semibold tracking-tight text-ink md:text-4xl">
               Have a decision to make?
             </h2>
@@ -129,7 +127,7 @@ export default function HomePage() {
                 className="inline-flex items-center gap-2 rounded-full bg-ink px-8 py-4 text-[15px] font-semibold text-white transition-shadow hover:shadow-xl"
               >
                 Book a free intro call
-                <span className="material-symbols-outlined text-xl">arrow_forward</span>
+                <Icon name="arrow_forward" className="h-5 w-5" />
               </Link>
             </Magnetic>
           </div>

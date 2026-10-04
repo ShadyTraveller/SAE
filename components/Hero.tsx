@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Magnetic } from "./Magnetic";
+import { Icon, type IconName } from "./Icon";
 
 const container = {
   hidden: {},
@@ -18,7 +19,7 @@ const item = {
   },
 };
 
-const METRICS = [
+const METRICS: { icon: IconName; label: string; value: string; width: string }[] = [
   { icon: "trending_up", label: "Revenue growth", value: "+38%", width: "76%" },
   { icon: "savings", label: "Cost efficiency", value: "+24%", width: "58%" },
   { icon: "groups", label: "Team capacity", value: "+51%", width: "86%" },
@@ -35,10 +36,7 @@ function SnapshotCard() {
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-deep opacity-60" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-brand-deep" />
-            </span>
+            <span className="h-2.5 w-2.5 rounded-full bg-brand-deep" />
             <p className="text-sm font-semibold text-ink">Q3 Growth Sprint</p>
           </div>
           <span className="rounded-full bg-brand/30 px-2.5 py-1 text-xs font-semibold text-ink">
@@ -51,9 +49,7 @@ function SnapshotCard() {
             <div key={m.label}>
               <div className="mb-2 flex items-center justify-between text-sm">
                 <span className="flex items-center gap-2 font-medium text-neutral-600">
-                  <span className="material-symbols-outlined text-xl text-neutral-400">
-                    {m.icon}
-                  </span>
+                  <Icon name={m.icon} className="h-5 w-5 text-neutral-400" />
                   {m.label}
                 </span>
                 <span className="font-semibold text-ink tabular-nums">{m.value}</span>
@@ -88,28 +84,6 @@ function SnapshotCard() {
           </div>
         </div>
       </motion.div>
-
-      <motion.div
-        animate={{ y: [0, -10, 0] }}
-        transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut" }}
-        className="absolute -top-5 -right-2 flex items-center gap-1.5 rounded-2xl border border-neutral-200 bg-white px-3.5 py-2.5 shadow-lg shadow-neutral-900/10 sm:-right-5"
-      >
-        <span className="material-symbols-outlined icon-filled text-xl text-brand-deep">
-          bolt
-        </span>
-        <span className="text-sm font-semibold text-ink">ROI +38%</span>
-      </motion.div>
-
-      <motion.div
-        animate={{ y: [0, 9, 0] }}
-        transition={{ repeat: Infinity, duration: 5.2, ease: "easeInOut", delay: 0.6 }}
-        className="absolute -bottom-5 -left-2 flex items-center gap-1.5 rounded-2xl border border-neutral-200 bg-white px-3.5 py-2.5 shadow-lg shadow-neutral-900/10 sm:-left-5"
-      >
-        <span className="material-symbols-outlined text-xl text-ink">
-          shield
-        </span>
-        <span className="text-sm font-semibold text-ink">Risk: low</span>
-      </motion.div>
     </div>
   );
 }
@@ -117,10 +91,6 @@ function SnapshotCard() {
 export function Hero() {
   return (
     <section className="relative">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-24 right-0 -z-10 h-80 w-80 rounded-full bg-brand/25 blur-3xl"
-      />
       <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-8">
         <motion.div variants={container} initial="hidden" animate="show">
           <motion.div variants={item}>
@@ -160,7 +130,7 @@ export function Hero() {
                 className="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-[15px] font-semibold text-white transition-shadow hover:shadow-lg"
               >
                 Start a project
-                <span className="material-symbols-outlined text-xl">arrow_forward</span>
+                <Icon name="arrow_forward" className="h-5 w-5" />
               </Link>
             </Magnetic>
             <Magnetic>

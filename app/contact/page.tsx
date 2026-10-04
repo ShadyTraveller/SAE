@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
+import { Icon, type IconName } from "@/components/Icon";
 import { CONTACT_EMAIL, CONTACT_LOCATION } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
     "Start a project with SAE Consulting — book a free 30-minute intro call or send us a message. Replies within one business day.",
 };
 
-const INFO_CARDS = [
+const INFO_CARDS: { icon: IconName; label: string; value: string; href?: string }[] = [
   {
     icon: "mail",
     label: "Email",
@@ -44,9 +45,7 @@ export default function ContactPage() {
             <Reveal key={card.label} delay={i * 0.07}>
               <div className="flex items-center gap-4 rounded-3xl border border-neutral-200 bg-white p-5">
                 <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-brand/25">
-                  <span className="material-symbols-outlined text-2xl text-ink">
-                    {card.icon}
-                  </span>
+                  <Icon name={card.icon} className="h-6 w-6 text-ink" />
                 </div>
                 <div className="min-w-0">
                   <p className="text-xs font-medium tracking-wide text-neutral-400 uppercase">
@@ -70,9 +69,7 @@ export default function ContactPage() {
           <Reveal delay={0.21}>
             <div className="rounded-3xl bg-ink p-6">
               <p className="flex items-center gap-2 text-sm font-semibold text-white">
-                <span className="material-symbols-outlined text-xl text-brand">
-                  lightbulb
-                </span>
+                <Icon name="lightbulb" className="h-5 w-5 text-brand" />
                 Good to know
               </p>
               <p className="mt-2 text-sm leading-relaxed text-neutral-400">

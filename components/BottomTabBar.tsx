@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { NAV_ITEMS } from "@/lib/site";
+import { Icon } from "./Icon";
 
 const spring = { type: "spring", stiffness: 500, damping: 38 } as const;
 
@@ -32,13 +33,13 @@ export function BottomTabBar() {
                   className="absolute inset-0 rounded-2xl bg-brand/25"
                 />
               )}
-              <span
-                className={`material-symbols-outlined relative z-10 text-[26px] ${
-                  active ? "icon-filled text-ink" : "text-neutral-400"
+              <Icon
+                name={item.icon}
+                filled={active}
+                className={`relative z-10 h-[26px] w-[26px] ${
+                  active ? "text-ink" : "text-neutral-400"
                 }`}
-              >
-                {item.icon}
-              </span>
+              />
               <span
                 className={`relative z-10 text-[11px] font-medium ${
                   active ? "text-ink" : "text-neutral-400"
