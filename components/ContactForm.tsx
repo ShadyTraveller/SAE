@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { supabase } from "@/lib/supabase";
 
 const inputClass =
   "w-full rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-[15px] text-ink placeholder:text-neutral-400 outline-none transition-all duration-200 focus:border-brand-deep focus:bg-white focus:ring-4 focus:ring-brand/30";
@@ -10,13 +11,32 @@ type Status = "idle" | "sending" | "sent";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (status !== "idle") return;
     setStatus("sending");
-    // Front-end demo: swap in a real endpoint (Formspree, Resend, etc.) later.
-    setTimeout(() => setStatus("sent"), 900);
+    setError(null);
+    try {
+      if (!supabase) throw new Error("Form backend is not configured.");
+      const formData = new FormData(e.currentTarget);
+      const { error: insertError } = await supabase
+        .from("contact_submissions")
+        .insert({
+          name: String(formData.get("name") ?? "").trim(),
+          email: String(formData.get("email") ?? "").trim(),
+          company: String(formData.get("company") ?? "").trim() || null,
+          message: String(formData.get("message") ?? "").trim(),
+        });
+      if (insertError) throw insertError;
+      setStatus("sent");
+    } catch {
+      setError(
+        "Something went wrong sending your message. Please try again or email us directly at hello@sae.llc."
+      );
+      setStatus("idle");
+    }
   }
 
   return (
@@ -96,6 +116,20 @@ export function ContactForm() {
                 className={`${inputClass} resize-none`}
               />
             </label>
+
+            <AnimatePresence>
+              {error && (
+                <motion.p
+                  initial={{ opacity: 0, y: -4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  className="rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700"
+                  role="alert"
+                >
+                  {error}
+                </motion.p>
+              )}
+            </AnimatePresence>
 
             <motion.button
               type="submit"
