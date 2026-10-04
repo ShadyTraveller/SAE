@@ -168,5 +168,5 @@ export const STATS: Stat[] = [
   { value: 30, suffix: "+", label: "Industries served" },
 ];
 
-export const CONTACT_EMAIL = "hello@sae.llc";
+export const CONTACT_EMAIL = "info@sae.llc";
 export const CONTACT_LOCATION = "Toronto, Ontario";
