@@ -1,7 +1,9 @@
+import type { IconName } from "@/components/Icon";
+
 export interface NavItem {
   href: string;
   label: string;
-  icon: string;
+  icon: IconName;
 }
 
 export const NAV_ITEMS: NavItem[] = [
@@ -12,10 +14,11 @@ export const NAV_ITEMS: NavItem[] = [
 ];
 
 export interface Service {
-  icon: string;
+  icon: IconName;
   title: string;
   blurb: string;
   points: string[];
+  image: string;
 }
 
 export const SERVICES: Service[] = [
@@ -24,6 +27,7 @@ export const SERVICES: Service[] = [
     title: "Business Strategy",
     blurb:
       "Where to play and how to win. We turn ambiguous markets into a focused, funded plan.",
+    image: "/images/services/strategy.webp",
     points: [
       "Market & competitor mapping",
       "Positioning & value proposition",
@@ -36,6 +40,7 @@ export const SERVICES: Service[] = [
     title: "Operations Excellence",
     blurb:
       "Find the friction, fix the flow. Leaner processes that give time back to your team.",
+    image: "/images/services/operations.webp",
     points: [
       "Process audits & mapping",
       "Cost & capacity analysis",
@@ -48,6 +53,7 @@ export const SERVICES: Service[] = [
     title: "Digital & AI",
     blurb:
       "Practical AI, not hype. We find the workflows where automation pays for itself.",
+    image: "/images/services/digital-ai.webp",
     points: [
       "AI opportunity assessment",
       "Workflow automation",
@@ -60,6 +66,7 @@ export const SERVICES: Service[] = [
     title: "Financial Advisory",
     blurb:
       "Know your numbers cold. Pricing, margins, and unit economics you can act on.",
+    image: "/images/services/financial.webp",
     points: [
       "Pricing strategy",
       "Unit economics & margins",
@@ -72,6 +79,7 @@ export const SERVICES: Service[] = [
     title: "Growth & Marketing",
     blurb:
       "A go-to-market engine tuned to your buyers — not a spray of tactics.",
+    image: "/images/services/growth.webp",
     points: [
       "Go-to-market strategy",
       "Demand generation",
@@ -84,6 +92,7 @@ export const SERVICES: Service[] = [
     title: "Leadership & Teams",
     blurb:
       "The org behind the outcomes. Structure, roles, and rhythms that scale.",
+    image: "/images/services/leadership.webp",
     points: [
       "Org design",
       "Leadership coaching",

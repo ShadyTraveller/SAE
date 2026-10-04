@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { STEPS } from "@/lib/site";
+import { Icon } from "./Icon";
 
 export function ProcessTabs() {
   const [activeId, setActiveId] = useState(STEPS[0].id);
@@ -68,7 +69,7 @@ export function ProcessTabs() {
                 {step.tagline}
               </p>
               <span className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-neutral-100 px-3 py-1.5 text-xs font-medium text-neutral-600">
-                <span className="material-symbols-outlined text-base">schedule</span>
+                <Icon name="schedule" className="h-4 w-4" />
                 {step.duration}
               </span>
             </div>
@@ -82,9 +83,7 @@ export function ProcessTabs() {
                 {step.deliverables.map((d) => (
                   <li key={d} className="flex items-center gap-2.5 text-[15px] text-ink">
                     <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-brand">
-                      <span className="material-symbols-outlined text-[14px] font-bold text-ink">
-                        check
-                      </span>
+                      <Icon name="check" className="h-3.5 w-3.5 text-ink" />
                     </span>
                     {d}
                   </li>
