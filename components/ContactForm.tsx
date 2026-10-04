@@ -34,7 +34,7 @@ export function ContactForm() {
       setStatus("sent");
     } catch {
       setError(
-        "Something went wrong sending your message. Please try again or email us directly at hello@sae.llc."
+        "Something went wrong sending your message. Please try again or email us directly at info@sae.llc."
       );
       setStatus("idle");
     }
@@ -151,8 +151,8 @@ export function ContactForm() {
 
             <p className="text-center text-xs text-neutral-400">
               Prefer email?{" "}
-              <a href="mailto:hello@sae.llc" className="font-medium text-ink underline-offset-2 hover:underline">
-                hello@sae.llc
+              <a href="mailto:info@sae.llc" className="font-medium text-ink underline-offset-2 hover:underline">
+                info@sae.llc
               </a>
             </p>
           </motion.form>
