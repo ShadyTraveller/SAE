@@ -30,3 +30,5 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Deploy
 
 Connected to Vercel — every push to `main` redeploys automatically.
+
+Redeploy note: env vars configured 2026-10-04.
