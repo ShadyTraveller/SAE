@@ -22,15 +22,24 @@ export function ContactForm() {
     try {
       if (!supabase) throw new Error("Form backend is not configured.");
       const formData = new FormData(e.currentTarget);
+      const payload = {
+        name: String(formData.get("name") ?? "").trim(),
+        email: String(formData.get("email") ?? "").trim(),
+        company: String(formData.get("company") ?? "").trim() || null,
+        message: String(formData.get("message") ?? "").trim(),
+      };
       const { error: insertError } = await supabase
         .from("contact_submissions")
-        .insert({
-          name: String(formData.get("name") ?? "").trim(),
-          email: String(formData.get("email") ?? "").trim(),
-          company: String(formData.get("company") ?? "").trim() || null,
-          message: String(formData.get("message") ?? "").trim(),
-        });
+        .insert(payload);
       if (insertError) throw insertError;
+      // Fire-and-forget email notification to the team inbox.
+      // The submission is already saved; a notification failure shouldn't
+      // block the success state.
+      fetch("/api/contact/notify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      }).catch(() => {});
       setStatus("sent");
     } catch {
       setError(
