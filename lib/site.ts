@@ -24,80 +24,41 @@ export interface Service {
 export const SERVICES: Service[] = [
   {
     icon: "strategy",
-    title: "Business Strategy",
+    title: "Management",
     blurb:
-      "Where to play and how to win. We turn ambiguous markets into a focused, funded plan.",
-    image: "/images/services/strategy.webp",
+      "Run the business like it matters. Strategy, operations, and leadership — tightened into one operating system.",
+    image: "/images/services/management.webp",
     points: [
-      "Market & competitor mapping",
-      "Positioning & value proposition",
-      "3-year growth roadmap",
-      "OKRs & operating cadence",
+      "Business strategy & growth roadmaps",
+      "Operations audits & process redesign",
+      "Org design & leadership coaching",
+      "Financial oversight: pricing, margins, forecasts",
     ],
   },
   {
-    icon: "tune",
-    title: "Operations Excellence",
+    icon: "shield",
+    title: "Security",
     blurb:
-      "Find the friction, fix the flow. Leaner processes that give time back to your team.",
-    image: "/images/services/operations.webp",
+      "Protect what you've built. Practical security assessments and upgrades for your premises and operations.",
+    image: "/images/services/security.webp",
     points: [
-      "Process audits & mapping",
-      "Cost & capacity analysis",
-      "SOPs and playbooks",
-      "Performance dashboards",
+      "Physical security assessments",
+      "Access control & entry planning",
+      "Security film & hardening upgrades",
+      "Risk reviews & incident readiness",
     ],
   },
   {
     icon: "smart_toy",
-    title: "Digital & AI",
+    title: "AI Integration",
     blurb:
-      "Practical AI, not hype. We find the workflows where automation pays for itself.",
-    image: "/images/services/digital-ai.webp",
+      "Put AI to work where it pays. We find the workflows where automation earns its keep — then implement it.",
+    image: "/images/services/ai-integration.webp",
     points: [
       "AI opportunity assessment",
-      "Workflow automation",
-      "Data foundations",
-      "Team enablement & training",
-    ],
-  },
-  {
-    icon: "insights",
-    title: "Financial Advisory",
-    blurb:
-      "Know your numbers cold. Pricing, margins, and unit economics you can act on.",
-    image: "/images/services/financial.webp",
-    points: [
-      "Pricing strategy",
-      "Unit economics & margins",
-      "Forecasting & budgeting",
-      "Investor & board reporting",
-    ],
-  },
-  {
-    icon: "trending_up",
-    title: "Growth & Marketing",
-    blurb:
-      "A go-to-market engine tuned to your buyers — not a spray of tactics.",
-    image: "/images/services/growth.webp",
-    points: [
-      "Go-to-market strategy",
-      "Demand generation",
-      "Conversion optimization",
-      "Brand & messaging",
-    ],
-  },
-  {
-    icon: "groups",
-    title: "Leadership & Teams",
-    blurb:
-      "The org behind the outcomes. Structure, roles, and rhythms that scale.",
-    image: "/images/services/leadership.webp",
-    points: [
-      "Org design",
-      "Leadership coaching",
-      "Hiring & role clarity",
-      "Culture & ways of working",
+      "Workflow automation & copilots",
+      "Data foundations & tooling",
+      "Team training & adoption",
     ],
   },
 ];
