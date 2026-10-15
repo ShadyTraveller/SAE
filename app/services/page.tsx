@@ -10,7 +10,7 @@ import { SERVICES } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Strategy, operations, digital & AI, financial advisory, growth, and leadership — six consulting practices from SAE Consulting.",
+    "Management consulting, business security, and AI integration — three focused practices from SAE Consulting Toronto.",
 };
 
 export default function ServicesPage() {
